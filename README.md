@@ -1,3 +1,7 @@
+# just listen, v2
+
+Hello! This is a second attempt at just-listen, the app that retunes chords from equal temperament to just intonation. The first iteration of this project had a number of issues, and many of them can be solved by starting with a clean slate.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
