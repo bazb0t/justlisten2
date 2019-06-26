@@ -1,28 +1,5 @@
 import React, { useState } from "react";
 
-// instantiate & unlock Audio Context:
-const AudioContext = window.AudioContext || window.webkitAudioContext;
-const context = new AudioContext();
-
-const oscillator = context.createOscillator();
-oscillator.connect(context.destination);
-//////
-
-// try to get simple tone.js example working
-// const Tone = require("tone");
-// const synth = new Tone.Synth();
-// synth.toMaster();
-// function clickButton() {
-//   synth.triggerAttackRelease("C4", 0.25, 4);
-//   //   const pattern = new Tone.Pattern(
-//   //     function(time, note) {
-//   //       synth.triggerAttackRelease(note, 0.25);
-//   //     },
-//   //     ["C4", "D4", "E4", "G4", "A4"]
-//   //   );
-// }
-////////////////////////////////////////
-
 function Form() {
   const [tenor, setTenor] = useState("");
   const [lead, setLead] = useState("");
@@ -96,20 +73,7 @@ function Form() {
           type="radio"
         />
         <br />
-
-        <button
-          type="submit"
-          // onSubmit={() => {
-          // when the tune button is hit:
-          // - send the notes through the JI calculator
-          // - JI calc should return notes to polysynth
-          // - polysynth should play chord (more than once)
-          // }}
-        >
-          tune!
-        </button>
       </form>
-      {/* <button onClick={clickButton}>test button</button> */}
     </div>
   );
 }
