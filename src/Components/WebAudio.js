@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import jiKeyCalc from "./jiKeyCalc";
 const Tone = require("tone");
 
 // instantiate & unlock Audio Context:
@@ -9,17 +9,15 @@ const ctx = new AudioContext();
 var synth = new Tone.PolySynth(4, Tone.Synth).toMaster();
 
 // function to wrap the button click
-function ETButton() {
+export function ETButton(chord) {
   ctx.resume().then(() => {
-    synth.triggerAttackRelease(["C4", "E4", "A4"], "4");
+    synth.triggerAttackRelease(chord, "4");
   });
 }
 
-function WebAudio() {
-  return (
-    <div>
-      <button onClick={ETButton}>test ET button</button>
-    </div>
-  );
+export function JIButton(chord, mel) {
+  let newChord = new jiKeyCalc(chord, mel);
+  ctx.resume().then(() => {
+    synth.triggerAttackRelease(newChord.harmony, "4");
+  });
 }
-export default WebAudio;
