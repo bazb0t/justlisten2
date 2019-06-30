@@ -15,6 +15,7 @@ export const Form = () => {
     <div>
       <form>
         <div>
+          <label>tenor </label>
           <input
             value={tenor}
             onChange={e => setTenor(e.target.value)}
@@ -25,6 +26,7 @@ export const Form = () => {
           />
         </div>
         <div>
+          <label>lead </label>
           <input
             value={lead}
             onChange={e => setLead(e.target.value)}
@@ -35,6 +37,7 @@ export const Form = () => {
           />
         </div>
         <div>
+          <label>bari </label>
           <input
             value={bari}
             onChange={e => setBari(e.target.value)}
@@ -45,6 +48,7 @@ export const Form = () => {
           />
         </div>
         <div>
+          <label>bass </label>
           <input
             value={bass}
             onChange={e => setBass(e.target.value)}
@@ -58,6 +62,9 @@ export const Form = () => {
           {" "}
           who has the melody/key pitch?{" "}
           <select onChange={e => setMel(e.target.value)}>
+            <option value="" disabled hidden>
+              select voice
+            </option>
             <option value={tenor}>tenor</option>
             <option value={lead}>lead</option>
             <option value={bari}>bari</option>

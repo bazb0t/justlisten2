@@ -32,7 +32,6 @@ export class jiKeyCalc {
     this["8d"] = this.base * (48 / 25);
     this["8P"] = this.base * (2 / 1);
     this.harmony = arr.map(voice => {
-      console.log(`note of ET array: `, voice, Note.freq(voice), `Hz`);
       let int = Distance.interval(pitch, voice);
       if (int.charAt(0) === "-") {
         int = Interval.invert(int.slice(1));
@@ -40,7 +39,6 @@ export class jiKeyCalc {
       } else {
         voice = this[int];
       }
-      console.log(`note of JI array: `, voice, `Hz`);
       return voice;
     });
   }
