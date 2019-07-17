@@ -24,6 +24,12 @@ export const Form = () => {
             name="tenor"
             required
           />
+          <input
+            type="radio"
+            name="mel"
+            value={tenor}
+            onChange={e => setMel(e.target.value)}
+          />
         </div>
         <div>
           <label>lead </label>
@@ -34,6 +40,12 @@ export const Form = () => {
             type="text"
             name="lead"
             required
+          />
+          <input
+            type="radio"
+            name="mel"
+            value={lead}
+            onChange={e => setMel(e.target.value)}
           />
         </div>
         <div>
@@ -46,6 +58,12 @@ export const Form = () => {
             name="bari"
             required
           />
+          <input
+            type="radio"
+            name="mel"
+            value={bari}
+            onChange={e => setMel(e.target.value)}
+          />
         </div>
         <div>
           <label>bass </label>
@@ -57,19 +75,30 @@ export const Form = () => {
             name="bass"
             required
           />
+          <input
+            type="radio"
+            name="mel"
+            value={bass}
+            onChange={e => setMel(e.target.value)}
+          />
         </div>{" "}
         <div>
           {" "}
-          who has the melody/key pitch?{" "}
-          <select onChange={e => setMel(e.target.value)}>
-            <option value="" disabled hidden>
-              select voice
+          who has the melody/key pitch? (select one){" "}
+          {/* <select
+            name="melody"
+            onChange={e => setMel(e.target.value)}
+            required
+            defaultValue={lead}
+          >
+            <option value="" disabled>
+              choose a voice
             </option>
             <option value={tenor}>tenor</option>
             <option value={lead}>lead</option>
             <option value={bari}>bari</option>
             <option value={bass}>bass</option>
-          </select>
+          </select> */}
         </div>
       </form>
       <button onClick={() => ETButton(chord)}>play in ET</button>

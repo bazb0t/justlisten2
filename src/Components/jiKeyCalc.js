@@ -33,7 +33,7 @@ export class jiKeyCalc {
     this["8P"] = this.base * (2 / 1);
     this.harmony = arr.map(voice => {
       let int = Distance.interval(pitch, voice);
-      if (int.charAt(0) === "-") {
+      if (int[0] === "-") {
         int = Interval.invert(int.slice(1));
         voice = this[int] / 2;
       } else {
