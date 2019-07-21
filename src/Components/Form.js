@@ -7,7 +7,7 @@ export const Form = () => {
   const [lead, setLead] = useState("Bb3");
   const [bari, setBari] = useState("G3");
   const [bass, setBass] = useState("C3");
-  const [mel, setMel] = useState(lead);
+  const [mel, setMel] = useState();
 
   const chord = [tenor, lead, bari, bass];
   console.log(chord, mel);
@@ -110,7 +110,13 @@ export const Form = () => {
         <div> who has the melody/key pitch? (select one) </div>
       </form>
       <button onClick={() => ETButton(chord)}>play in ET</button>
-      <button onClick={() => JIButton(chord, mel)}>play in JI</button>
+      {mel ? (
+        <button onClick={() => JIButton(chord, mel)}>play in JI</button>
+      ) : (
+        <button onClick={() => alert(`Please select a voice.`)}>
+          play in JI
+        </button>
+      )}
     </div>
   );
 };
