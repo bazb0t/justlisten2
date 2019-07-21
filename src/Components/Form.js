@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { ETButton, JIButton } from "./WebAudio";
+import { pitchList } from "./pitchList";
 
 export const Form = () => {
-  const [tenor, setTenor] = useState("");
-  const [lead, setLead] = useState("");
-  const [bari, setBari] = useState("");
-  const [bass, setBass] = useState("");
+  const [tenor, setTenor] = useState("E4");
+  const [lead, setLead] = useState("Bb3");
+  const [bari, setBari] = useState("G3");
+  const [bass, setBass] = useState("C3");
   const [mel, setMel] = useState(lead);
 
   const chord = [tenor, lead, bari, bass];
@@ -16,14 +17,20 @@ export const Form = () => {
       <form>
         <div>
           <label>tenor </label>
-          <input
-            value={tenor}
-            onChange={e => setTenor(e.target.value)}
-            placeholder="tenor"
-            type="text"
+          <select
             name="tenor"
+            onChange={e => setTenor(e.target.value)}
             required
-          />
+            defaultValue="E4"
+          >
+            {pitchList.map(voice => {
+              return (
+                <option value={voice} key={`tn` + voice}>
+                  {voice}
+                </option>
+              );
+            })}
+          </select>
           <input
             type="radio"
             name="mel"
@@ -33,14 +40,20 @@ export const Form = () => {
         </div>
         <div>
           <label>lead </label>
-          <input
-            value={lead}
-            onChange={e => setLead(e.target.value)}
-            placeholder="lead"
-            type="text"
+          <select
             name="lead"
+            onChange={e => setLead(e.target.value)}
             required
-          />
+            defaultValue="Bb3"
+          >
+            {pitchList.map(voice => {
+              return (
+                <option value={voice} key={`ld` + voice}>
+                  {voice}
+                </option>
+              );
+            })}
+          </select>
           <input
             type="radio"
             name="mel"
@@ -50,14 +63,20 @@ export const Form = () => {
         </div>
         <div>
           <label>bari </label>
-          <input
-            value={bari}
-            onChange={e => setBari(e.target.value)}
-            placeholder="bari"
-            type="text"
+          <select
             name="bari"
+            onChange={e => setBari(e.target.value)}
             required
-          />
+            defaultValue="G3"
+          >
+            {pitchList.map(voice => {
+              return (
+                <option value={voice} key={`br` + voice}>
+                  {voice}
+                </option>
+              );
+            })}
+          </select>
           <input
             type="radio"
             name="mel"
@@ -67,14 +86,20 @@ export const Form = () => {
         </div>
         <div>
           <label>bass </label>
-          <input
-            value={bass}
-            onChange={e => setBass(e.target.value)}
-            placeholder="bass"
-            type="text"
+          <select
             name="bass"
+            onChange={e => setBass(e.target.value)}
             required
-          />
+            defaultValue="C3"
+          >
+            {pitchList.map(voice => {
+              return (
+                <option value={voice} key={`bs` + voice}>
+                  {voice}
+                </option>
+              );
+            })}
+          </select>
           <input
             type="radio"
             name="mel"
@@ -82,24 +107,7 @@ export const Form = () => {
             onChange={e => setMel(e.target.value)}
           />
         </div>{" "}
-        <div>
-          {" "}
-          who has the melody/key pitch? (select one){" "}
-          {/* <select
-            name="melody"
-            onChange={e => setMel(e.target.value)}
-            required
-            defaultValue={lead}
-          >
-            <option value="" disabled>
-              choose a voice
-            </option>
-            <option value={tenor}>tenor</option>
-            <option value={lead}>lead</option>
-            <option value={bari}>bari</option>
-            <option value={bass}>bass</option>
-          </select> */}
-        </div>
+        <div> who has the melody/key pitch? (select one) </div>
       </form>
       <button onClick={() => ETButton(chord)}>play in ET</button>
       <button onClick={() => JIButton(chord, mel)}>play in JI</button>
